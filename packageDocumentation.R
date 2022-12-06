@@ -1,3 +1,4 @@
+# packageDocumentation()
 # Get R package documentation
 
 # Given one or more package names and a date, extract the package version and 
@@ -6,6 +7,19 @@
 # 12/06/2022
 # M.E.F. 
 # mariaefeiler@gmail.com
+
+# R4.1.3, RStudio 2022.7.0.548
+# Windows 10 x64
+
+# SOURCES:
+        # CRAN R package versions on specific date: 
+        # https://stackoverflow.com/questions/51629840/get-cran-r-package-versions-of-specific-date
+        # Using gsub()for multiple patterns:
+        # https://www.statology.org/r-gsub-multiple-patterns/
+        # Extracting names of package authors from CRAN:
+        # https://stackoverflow.com/questions/31568278/how-can-i-extract-the-names-of-all-package-authors-from-cran
+        # Suppressing paste separator with missing values:
+        # https://stackoverflow.com/questions/14270950/suppress-separator-in-paste-when-values-are-missing
 
 # @param p      Character string or a vector of character strings denoting 
 #               package name(s).
