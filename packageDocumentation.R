@@ -146,7 +146,7 @@ packageDocumentation <- function(p, day = Sys.Date(), first = "given",
                 }
         }
         # ... or only as many as defined in param no.    
-        if(is.integer(no)){
+        if(is.numeric(no)){
                 for(i in p){
                         a[[i]] <- data.frame("Given" = unlist(head(giv[[i]], no)),
                                              "Family" = unlist(head(fam[[i]], no)))
@@ -154,7 +154,7 @@ packageDocumentation <- function(p, day = Sys.Date(), first = "given",
         }
         
         # Create author list with family name first...
-        if(first == "family"){
+        if(first == "given"){
                 for(i in p){
                         a[[i]] <- unlist(apply(a[[i]][,1:2],1, 
                                                function(x) paste(x[x!=""], 
@@ -163,9 +163,9 @@ packageDocumentation <- function(p, day = Sys.Date(), first = "given",
                 }
         }
         # ... or given name first.     
-        if(first == "given"){
+        if(first == "family"){
                 for(i in p){
-                        a[[i]] <- unlist(apply(a[[i]][,1:2], 
+                        a[[i]] <- unlist(apply(a[[i]][,c(2:1)], 
                                                1, 
                                                function(x) paste(x[x!=""], 
                                                                  collapse = ", "))
