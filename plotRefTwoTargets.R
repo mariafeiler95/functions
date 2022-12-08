@@ -13,6 +13,9 @@
 # shape differences of the target specimen(s) relative to the reference 
 # specimen.
 
+# SOURCE:               geomorph's plotRefToTarget()
+                        https://rdrr.io/cran/geomorph/man/plotRefToTarget.html
+
 # @param ref            Matrix of landmark coordinates for the reference 
 #                       landmarks.
 # @param tar            Matrix/array of landmark coordinates for the target
