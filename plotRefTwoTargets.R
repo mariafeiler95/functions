@@ -14,7 +14,7 @@
 # specimen.
 
 # SOURCE:               geomorph's plotRefToTarget()
-                        https://rdrr.io/cran/geomorph/man/plotRefToTarget.html
+#                       https://rdrr.io/cran/geomorph/man/plotRefToTarget.html
 
 # @param ref            Matrix of landmark coordinates for the reference 
 #                       landmarks.
