@@ -10,5 +10,6 @@ As of 12/07/2022:
 | function               | description                                                                          | functional?             |
 |------------------------|--------------------------------------------------------------------------------------|-------------------------|
 | packageDocumentation.R | Given one or more package names and a date, extract the package version and authors. | yes                     |
-| mrkJsonToArray.R       | Read one or more .mrk.json landmark files into array.                                | untested                |
+| mrkJsonToArray.R       | Read one or more .mrk.json landmark files into array.                                | yes                     |
 | plotRefTwoTargets.R    | Plot three dimensional shape differences between a reference and target.             | yes                     |
+| procDistCIs.R          | Calculate Procrustes distance between two arrays of landmark data                    | yes                     |
