@@ -139,8 +139,8 @@ mrkJsonToArray <- function(files, path = NULL, lmset = NULL, spec = NULL, k = NU
                         }
                         # Log specimens who had landmarks excluded
                         if(dim(ar)[1] < dim(x)[1]){
-                                dif <- setdiffs(dimnames(x)[[1]], lmset)
-                                extras <- c(ex, paste(dif))
+                                dif <- setdiff(dimnames(x)[[1]], lmset)
+                                extras <- c(x, paste(dif))
                                 names(extras) <- c(names(extras), files[i])
                         }
                         # Stop if wrong dimensions
@@ -183,8 +183,8 @@ mrkJsonToArray <- function(files, path = NULL, lmset = NULL, spec = NULL, k = NU
                         }
                         # Log specimens who had landmarks excluded
                         if(dim(ar)[1] < dim(x)[1]){
-                                dif <- setdiffs(dimnames(x)[[1]], lmset)
-                                extras <- c(ex, paste(dif))
+                                dif <- setdiff(dimnames(x)[[1]], lmset)
+                                extras <- c(x, paste(dif))
                                 names(extras) <- c(names(extras), files[i])
                         }
                         # Stop if wrong dimensions
