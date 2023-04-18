@@ -81,7 +81,7 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL,
         # Add labels if defined.
         if(label == TRUE){
                 # If the dimnames of the matrix are empty...
-                if(!is.null(dimnames(ref)[[1]])){
+                if(is.null(dimnames(ref)[[1]])){
                         text3d(ref, 
                                texts = paste(1:dim(ref)[1]), 
                                adj = (gP$txt.adj+gP$pt.size),
