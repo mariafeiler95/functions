@@ -13,4 +13,4 @@ As of 04/19/2023:
 | mrkJsonToArray.R       | Read one or more .mrk.json landmark files into array.                                     | yes                     |
 | plotRefTwoTargets.R    | Plot three dimensional shape differences between a reference and target.                  | yes                     |
 | procDistCIs.R          | Calculate Procrustes distance between two arrays of landmark data                         | yes                     |
-| mShapeDists            | Calculate the Procrustes distances of landmark data within an array from the mean shape.  | yes                     |
+| mShapeDists.R          | Calculate the Procrustes distances of landmark data within an array from the mean shape.  | yes                     |
