@@ -24,12 +24,16 @@
 #                       visualizing shape differences. 
 #                       Default: 1        
 # @param gridPars       An optional object made by geomorph's gridPar()
+# @param prog           Logical, whether or not to plot the landmark targets as
+#                       a progression.
 # @param vectcols       Character vector of colors for target landmark vectors. 
 # @param label          Logical, whether or not to plot landmark labels. If TRUE
 #                       and the reference matrix have defined landmark names in 
 #                       dimnames(ref)[[1]], then those will be used. If not, 
 #                       landmarks will be numbered in order of appearance in 
 #                       the reference matrix.
+#                       If a vector of the same length as the first dimension
+#                       of the array is provided, then those labels will be used.
 # @param links          An optional matrix defining links between landmarks. 
 
 # @return               A 3D, interactive scatter plot.
@@ -56,7 +60,7 @@
 #                   radius = 0.0025
 #                   )
 
-plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, 
+plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FALSE,
                             vectcols = NULL, label = FALSE, links = NULL, ...){
     # Require libraries    
         require(geomorph)
@@ -158,14 +162,39 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL,
                 
                 # Calculate and plot differences between target and reference
                 # landmarks.
-                for(i in 1:dims[3]){
-                        for(j in 1:dims[1]){
-                                temp <- tar[,,i] + (tar[,,i] - ref)*(mag - 1)
-                                segments3d(rbind(ref[j,], temp[j,]),
-                                           lwd = 2,
-                                           col = vectcols[i])
-                        }
+                # If not sequential...
+                if(prog == FALSE){
+                  # Calculate and plot differences between target and reference
+                  # landmarks.
+                  for(i in 1:dims[3]){
+                    for(j in 1:dims[1]){
+                      temp <- tar[,,i] + (tar[,,i] - ref)*(mag - 1)
+                      segments3d(rbind(ref[j,], temp[j,]),
+                                 lwd = 2,
+                                 col = vectcols[i])
+                    }
+                  }
                 }
-        }
+               # If sequential...
+                  if(prog == TRUE){
+                    for(j in 1:dims[1]){
+                      temp <- tar[,,1] + (tar[,,1] - ref)*(mag - 1)
+                      segments3d(rbind(ref[j,], temp[j,]),
+                                 lwd = 2,
+                                 col = vectcols[1])
+                    } 
+
+                    for(i in 2:dims[3]){
+                      for(j in 1:dims[1]){
+                        temp <- tar[,,i] + (tar[,,i] - tar[,,i-1])*(mag - 1)
+
+                        segments3d(rbind(tar[j,,i-1], temp[j,]),
+                                   lwd = 2,
+                                   col = vectcols[i])
+
+
+                      }
+                    }
+                  }
+  }
 }
-        
