@@ -77,7 +77,7 @@ mrkJsonToArray <- function(files, path = NULL, lmset = NULL, spec = NULL, k = NU
                 }
         }
         if(is.null(path)){
-                fileLoc <- files
+                fileLoc <- paste0(getwd(),"/", files)
         }
 
     # Check that all files exist
@@ -92,7 +92,7 @@ mrkJsonToArray <- function(files, path = NULL, lmset = NULL, spec = NULL, k = NU
     # Check that there are the correct number of specimen IDs (if param spec 
     # provided), otherwise assign integers from one to length(fileLoc) to spec.    
         if(is.null(spec)){
-                spec <- 1:length(fileLoc)
+                spec <- files
         }
         if(length(fileLoc) != length(spec)){
                 stop("Number of files and number of specimen IDs are not equal.")
