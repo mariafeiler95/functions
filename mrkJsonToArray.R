@@ -77,7 +77,7 @@ mrkJsonToArray <- function(files, path = NULL, lmset = NULL, spec = NULL, k = NU
                 }
         }
         if(is.null(path)){
-                fileLoc <- paste0(getwd(),"/", files)
+                fileLoc <- files
         }
 
     # Check that all files exist
