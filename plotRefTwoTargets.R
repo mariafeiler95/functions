@@ -81,39 +81,29 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                zlab = "",
                axes = F,
                ...)
-        
-        # Add labels if provided in deference specimen.
-        if(label == TRUE){
-                # If the dimnames of the matrix are empty...
-                if(is.null(dimnames(ref)[[1]])){
-                        text3d(ref, 
-                               texts = paste(1:dim(ref)[1]), 
-                               adj = (gP$txt.adj+gP$pt.size),
-                               pos = gP$txt.pos, 
-                               cex = gP$txt.cex,
-                               col = gP$txt.col)
-                }
-                
-                # ... or if they define the landmark names. 
-                else{
-                text3d(ref, 
-                       texts = dimnames(ref)[[1]], 
-                       adj = (gP$txt.adj+gP$pt.size),
-                       pos = gP$txt.pos, 
-                       cex = gP$txt.cex,
-                       col = gP$txt.col)
-                }
-        }
-        # Add labels if provided as a vector (only works if same length, otherwise defaults)
-        if(length(label) == dim(ref)[1]){
-                text3d(ref,
-                       texts = label,
-                       adj = (gP$txt.adj+gP$pt.size),
-                       pos = gP$txt.pos, 
-                       cex = gP$txt.cex,
-                       col = gP$txt.col)
-        }
-        
+
+        # Add labels.
+          if(!is.null(label)){
+            if(length(label) == dim(ref)[1]){
+              text3d(ref,
+                     texts = label,
+                     adj = (gP$txt.adj+gP$pt.size),
+                     pos = gP$txt.pos, 
+                     cex = gP$txt.cex,
+                     col = gP$txt.col)
+            }
+
+            # ... or if they define the landmark names. 
+            else{
+              text3d(ref, 
+                     texts = dimnames(ref)[[1]], 
+                     adj = (gP$txt.adj+gP$pt.size),
+                     pos = gP$txt.pos, 
+                     cex = gP$txt.cex,
+                     col = gP$txt.col)
+            }
+          }
+ 
         # Add landmark links if defined.
         if(!is.null(links)){
                 # Define parameters
