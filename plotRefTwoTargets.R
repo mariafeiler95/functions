@@ -82,7 +82,7 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                axes = F,
                ...)
         
-        # Add labels if defined.
+        # Add labels if provided in deference specimen.
         if(label == TRUE){
                 # If the dimnames of the matrix are empty...
                 if(is.null(dimnames(ref)[[1]])){
@@ -103,6 +103,15 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                        cex = gP$txt.cex,
                        col = gP$txt.col)
                 }
+        }
+        # Add labels if provided as a vector (only works if same length, otherwise defaults)
+        if(length(label) == dim(ref)[1]{
+                text3d(ref,
+                       texts = label,
+                       adj = (gP$txt.adj+gP$pt.size),
+                       pos = gP$txt.pos, 
+                       cex = gP$txt.cex,
+                       col = gP$txt.col)
         }
         
         # Add landmark links if defined.
