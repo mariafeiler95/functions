@@ -105,7 +105,7 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                 }
         }
         # Add labels if provided as a vector (only works if same length, otherwise defaults)
-        if(length(label) == dim(ref)[1]{
+        if(length(label) == dim(ref)[1]){
                 text3d(ref,
                        texts = label,
                        adj = (gP$txt.adj+gP$pt.size),
