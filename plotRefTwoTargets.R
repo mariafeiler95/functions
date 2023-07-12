@@ -64,7 +64,8 @@
 #                   )
 
 plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FALSE,
-                            vectcols = NULL, label = FALSE, links = NULL, ...){
+                            vectcols = NULL, label = FALSE, links = NULL, 
+                            tar.lwd = 2, ...){
     # Require libraries    
         require(geomorph)
     
