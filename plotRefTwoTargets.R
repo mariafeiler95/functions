@@ -94,7 +94,8 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                      adj = (gP$txt.adj+gP$pt.size),
                      pos = gP$txt.pos, 
                      cex = gP$txt.cex,
-                     col = gP$txt.col)
+                     col = gP$txt.col,
+                     ...)
             }
 
             # ... or if they define the landmark names. 
@@ -104,7 +105,8 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                      adj = (gP$txt.adj+gP$pt.size),
                      pos = gP$txt.pos, 
                      cex = gP$txt.cex,
-                     col = gP$txt.col)
+                     col = gP$txt.col,
+                     ...)
             }
           }
  
