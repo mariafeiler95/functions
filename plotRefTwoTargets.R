@@ -35,6 +35,9 @@
 #                       If a vector of the same length as the first dimension
 #                       of the array is provided, then those labels will be used.
 # @param links          An optional matrix defining links between landmarks. 
+# @param tar.lwd        Numeric, desired line weight for target specimen line
+#                       segments. 
+#                       Default: 2
 
 # @return               A 3D, interactive scatter plot.
 
@@ -125,7 +128,6 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
     # PLOT TARGET LANDMARKS (T1-10, vectcols, mag, gridPars)  
         dims <- dim(tar)
         
-
         # If only reference landmarks provided...
         if(is.null(dims)){
                 message("No target landmarks provided, plotted reference landmarks only.")
@@ -145,7 +147,7 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                 for(j in 1:dims[1]){
                         temp <- tar + (tar - ref)*(mag - 1)
                         segments3d(rbind(ref[j,], temp[j,]),
-                                   lwd = 2,
+                                   lwd = tar.lwd,
                                    col = vectcols[1])
                 }
         }
@@ -169,7 +171,7 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                     for(j in 1:dims[1]){
                       temp <- tar[,,i] + (tar[,,i] - ref)*(mag - 1)
                       segments3d(rbind(ref[j,], temp[j,]),
-                                 lwd = 2,
+                                 lwd = tar.lwd,
                                  col = vectcols[i])
                     }
                   }
@@ -179,16 +181,15 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                     for(j in 1:dims[1]){
                       temp <- tar[,,1] + (tar[,,1] - ref)*(mag - 1)
                       segments3d(rbind(ref[j,], temp[j,]),
-                                 lwd = 2,
+                                 lwd = tar.lwd,
                                  col = vectcols[1])
                     } 
 
                     for(i in 2:dims[3]){
                       for(j in 1:dims[1]){
                         temp <- tar[,,i] + (tar[,,i] - tar[,,i-1])*(mag - 1)
-
                         segments3d(rbind(tar[j,,i-1], temp[j,]),
-                                   lwd = 2,
+                                   lwd = tar.lwd,
                                    col = vectcols[i])
 
 
