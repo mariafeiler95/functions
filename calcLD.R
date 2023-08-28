@@ -37,9 +37,10 @@
 # @examples
 # library(geomorph)
 # data(scallops)
-# scalgpa <- gpagen(scallops$coorddata)
+# scalLMs <- scallops$coorddata
+# scalPairs <- scallops$land.pairs
 
-# 
+# calcLD(scalLMs, pairs = scalPairs, sum = TRUE, rel = TRUE)
 
 calcLD <- function(data, pairs = c(1,2), sum = FALSE, rel = FALSE, nam = 1:nrow(pairs)){
     if(is.null(nrow(pairs))){
