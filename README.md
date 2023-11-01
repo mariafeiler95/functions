@@ -17,8 +17,8 @@ As of 11/01/2023:
 | Walker2008.R           | Estimate sex based on cranial nonmetric trait scores using Walker 2008.                   | yes                     |
 | Walker2005.R           | Estimate sex based on greater sciatic notch scores using Walker 2005.                     | yes                     |
 | Klales2012.R           | Estimate sex based on pubic trait scores using Klales et al. 2012.                        | yes                     |
-| calcLD.R               | Calculate linear distance between two 3D landmarks across an array.                       | yes                     |
-| midlineLM.R            | Calculate midline landmark between two 3D landmarks across an array.                      | yes                     |
+| calcLD.R               | Calculate linear distance between pairs of 3D landmarks across an array.                  | yes                     |
+| midlineLM.R            | Calculate midline landmark between pairs of 3D landmarks across an array.                 | yes                     |
 | bulkWriteMarkups.R     | Write .fcsv files for each specimen in a sample.                                          | yes                     |
 
   
