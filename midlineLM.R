@@ -1,5 +1,5 @@
 # midlineLM()
-# Calculate midline landmark between two 3D landmarks across an array
+# Calculate midline landmark between pairs of 3D landmarks across an array
 
 # Given a matrix of landmark pairs and an array organized p x k x n (landmarks, 
 # dimensions, specimens), calculates the midline ladnmark between those landmarks 
