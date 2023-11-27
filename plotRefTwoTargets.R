@@ -64,7 +64,7 @@
 #                   )
 
 plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FALSE,
-                            vectcols = NULL, label = FALSE, links = NULL, 
+                            vectcols = NULL, label = NULL, links = NULL, 
                             tar.lwd = 2, ...){
     # Require libraries    
         require(geomorph)
@@ -87,28 +87,34 @@ plotRefTwoTargets<-function(ref, tar = NULL, mag = 1, gridPars = NULL, prog = FA
                ...)
 
         # Add labels.
-          if(!is.null(label)){
-            if(length(label) == dim(ref)[1]){
-              text3d(ref,
-                     texts = label,
-                     adj = (gP$txt.adj+gP$pt.size),
-                     pos = gP$txt.pos, 
-                     cex = gP$txt.cex,
-                     col = gP$txt.col,
-                     ...)
-            }
+    if(!is.null(label)){
+        if(length(label) == dim(ref)[1]){
+            text3d(ref,
+                   texts = label,
+                   adj = (gP$txt.adj+gP$pt.size),
+                   pos = gP$txt.pos, 
+                   cex = gP$txt.cex,
+                   col = gP$txt.col,
+                   ...)
+        }
+        
+        # ... or if they define the landmark names. 
+        if(label == TRUE){
+            text3d(ref, 
+                   texts = dimnames(ref)[[1]], 
+                   adj = (gP$txt.adj+gP$pt.size),
+                   pos = gP$txt.pos, 
+                   cex = gP$txt.cex,
+                   col = gP$txt.col,
+                   ...)
+        }
+        if(label == FALSE){
+            message("label == FALSE not valid, no labels printed. Please either 
+                    define landmarks in a vector or provide TRUE to use the 
+                    landmark names stored in the data array.")
+        }
+    }
 
-            # ... or if they define the landmark names. 
-            else{
-              text3d(ref, 
-                     texts = dimnames(ref)[[1]], 
-                     adj = (gP$txt.adj+gP$pt.size),
-                     pos = gP$txt.pos, 
-                     cex = gP$txt.cex,
-                     col = gP$txt.col,
-                     ...)
-            }
-          }
  
         # Add landmark links if defined.
         if(!is.null(links)){
