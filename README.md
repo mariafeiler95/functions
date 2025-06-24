@@ -6,7 +6,7 @@ All packages, authors, or help pages who served as inspiration or provided code 
 
 Using/modifying my functions/macros? Feel free! But please cite me if necessary and let me know of any improvements you make! I am always open for suggestions. 
 
-As of 11/01/2023:
+As of 06/24/2025:
 | R function             | description                                                                               | functional?             |
 |------------------------|-------------------------------------------------------------------------------------------|-------------------------|
 | packageDocumentation.R | Given one or more package names and a date, extract the package version and authors.      | yes                     |
@@ -20,6 +20,7 @@ As of 11/01/2023:
 | calcLD.R               | Calculate linear distance between pairs of 3D landmarks across an array.                  | yes                     |
 | midlineLM.R            | Calculate midline landmark between pairs of 3D landmarks across an array.                 | yes                     |
 | bulkWriteMarkups.R     | Write .fcsv files for each specimen in a sample.                                          | yes                     |
+| shapeHullsPCA.R        | Create a PCA plot with shape hulls for groups.                                            | yes                     |
 
   
 | ImageJ macro           | description                                                                               | functional?                 |
