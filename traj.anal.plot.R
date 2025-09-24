@@ -66,7 +66,7 @@ traj.anal.plot <- function(x, pc.axes = c(1,2), ...) {
     plot(pc.points[,pc.axes[1]], pc.points[,pc.axes[2]], asp = 1, xlab = xlabel, ...)
   if(is.null(dots$xlab) && is.null(dots$ylab))
     plot(pc.points[,pc.axes[1]], pc.points[,pc.axes[2]], asp = 1, xlab = xlabel, ylab = ylabel, ...)
-  out <- list(pca = pca, pc.points = pc.points, 
+  out <- list(pca = pca, pc.points = pc.points, pc.axes = pc.axes,
               trajectory.analysis = x, trajectories = trajectories)
   invisible(out)
 }
