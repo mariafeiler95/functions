@@ -6,7 +6,7 @@ traj.anal.plot <- function(x, pc.axes = c(1,2), ...) {
     rot <- pca$rotation
     Y <- x$fit$LM$Y
     props <- pca$sdev^2 / sum(pca$sdev^2)
-    pc.points <- scale(Y) %*% rot
+    pc.points <- scale(Y, scale = FALSE) %*% rot
     trajectories <- x$trajectories[[1]]
   }
   
@@ -17,7 +17,7 @@ traj.anal.plot <- function(x, pc.axes = c(1,2), ...) {
     Y <- x$fit$LM$Y
     Y.cent <- colMeans(Y)
     props <- pca$sdev^2 / sum(pca$sdev^2)
-    pc.points <- center(Y) %*% rot
+    pc.points <- scale(Y, scale = FALSE) %*% rot
     trajectories <- x$trajectories[[1]]
     if(is.matrix(trajectories)) trajectories <- list(trajectories)
     traj.c <- matrix(Y.cent, NROW(trajectories[[1]]), 
@@ -41,7 +41,7 @@ traj.anal.plot <- function(x, pc.axes = c(1,2), ...) {
     for(i in 2:tp) Y <- rbind(Y, Y2[,,i])
     Y.cent <- colMeans(Y)
     props <- pca$sdev^2 / sum(pca$sdev^2)
-    pc.points <- scale(Y) %*% rot
+    pc.points <- scale(Y, scale = FALSE) %*% rot
     trajectories <- x$trajectories[[1]]
     if(is.matrix(trajectories)) trajectories <- list(trajectories)
     traj.c <- matrix(Y.cent, NROW(trajectories[[1]]), 
