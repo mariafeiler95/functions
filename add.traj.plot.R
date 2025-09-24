@@ -9,7 +9,6 @@ add.traj.plot <- function(TP,
                              end.bg = 2) {
   
   traj <- TP$trajectories
-  pc.axes <- TP$pc.axes
   nt <- length(traj)
   np <- NROW(traj[[1]])
   
@@ -62,8 +61,8 @@ add.traj.plot <- function(TP,
            end.bg<- rep(end.bg, nt)     
   
   for(i in 1:nt){
-    x <- traj[[i]][,pc.axes[1]]
-    y <- traj[[i]][,pc.axes[2]]
+    x <- traj[[i]][,TP$pc.axes[1]]
+    y <- traj[[i]][,TP$pc.axes[2]]
     lines(x, y, col = traj.col[i], lwd = traj.lwd[i], lty = traj.lty[i])
     points(x, y, col = 1, pch = traj.pch[i], 
            lwd = traj.lwd[i], cex = traj.cex[i], bg = traj.bg[i])
