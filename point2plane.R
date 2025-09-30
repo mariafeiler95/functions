@@ -23,5 +23,5 @@ point2plane <- function(p,a,b,c){
 
   return(list(distance=dis, #distance
               prj.pt2plane=prj #c(pr.x,pr.y,pr.z) #point of orthogonal projection (i.e. closest point) on the plane
-  )
+  ))
 }
