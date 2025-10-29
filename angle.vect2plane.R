@@ -1,8 +1,38 @@
-angle.vect2plane <- function(vect1, vect2, planeA, planeB, planeC, angle = "radians",
+# angle.vect2plane()
+# Calculate absolute angle between vector and a plane in 3D space.
+
+# Given 3D coordinates of points that define the vector and plane in question,
+# produces angle in desired units.
+
+# 10/29/2025
+# M.E.F.
+# mariaefeiler@gmail.com
+
+# R4.5.0, RStudio 2025.09.0.387
+# Windows 10 x64
+
+# @param vect1     Vector in (x,y,z) format, first point on the vector.
+# @param vect2     Vector in (x,y,z) format, second point on the vector.
+# @param planeA    Vector in (x,y,z) format, first point on the plane.
+# @param planeB    Vector in (x,y,z) format, second point on the plane.
+# @param planeC    Vector in (x,y,z) format, third point on the plane.
+# @param unit      Character, "radians" or "r" for radians, "degrees" or
+#                  "d" for degrees, determines units of output.
+# @param robust    If TRUE: returns list (see below). 
+#                  If FALSE, returns only angle.
+#                  Default: FALSE
+
+# @return         List:
+#                 $pNorm      Normal vector of the calculated plane.
+#                 $vector     Vector calculated between the two points of
+#                             interest.
+#                 $theta      The angle calculated.
+#                 $unit       The unit of the angle calculated.
+
+angle.vect2plane <- function(vect1, vect2, planeA, planeB, planeC, unit = "radians",
                              robust = FALSE){
     # Define plane equation as d = Ax + By + Cz to get the normal vector of the
     # plane in form (A,B,C).
-    # source: https://rdrr.io/cran/pcds/src/R/AuxGeometry.R function: Plane
     # Find two vectors on the line
     AB = planeA - planeB
     AC = planeA - planeC
@@ -28,19 +58,19 @@ angle.vect2plane <- function(vect1, vect2, planeA, planeB, planeC, angle = "radi
     sin_theta = abs(dot) / (mag_vect * mag_pNorm)
     
     # Calculate angle as either degrees or radians
-    if(angle == "radians" | angle == "r"){
+    if(unit == "radians" | unit == "r"){
         theta = as.numeric(asin(sin_theta))
-        angle = "radians"}
-    if(angle == "degrees" | angle == "d"){
+        unit = "radians"}
+    if(unit == "degrees" | unit == "d"){
         theta = as.numeric(asin(sin_theta) * (180 / pi))
-        angle = "degrees"}
+        unit = "degrees"}
     
     # Return 
     if(robust == TRUE){
         return(list("pNorm" = pNorm,
                     "vector" = vect,
                     "theta" = theta,
-                    "angle" = angle))
+                    "unit" = angle))
     }
     if(robust == FALSE){return(theta)}
 }
