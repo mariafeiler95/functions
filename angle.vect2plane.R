@@ -18,6 +18,7 @@
 # @param planeC    Vector in (x,y,z) format, third point on the plane.
 # @param unit      Character, "radians" or "r" for radians, "degrees" or
 #                  "d" for degrees, determines units of output.
+#                  Default: "degrees"
 # @param robust    If TRUE: returns list (see below). 
 #                  If FALSE, returns only angle.
 #                  Default: FALSE
@@ -29,7 +30,7 @@
 #                 $theta      The angle calculated.
 #                 $unit       The unit of the angle calculated.
 
-angle.vect2plane <- function(vect1, vect2, planeA, planeB, planeC, unit = "radians",
+angle.vect2plane <- function(vect1, vect2, planeA, planeB, planeC, unit = "degrees",
                              robust = FALSE){
     # Define plane equation as d = Ax + By + Cz to get the normal vector of the
     # plane in form (A,B,C).
